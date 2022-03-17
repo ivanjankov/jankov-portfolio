@@ -220,10 +220,10 @@ main > :last-child {
 }
 
 .body-content > *:where(:not(:last-child)) {
-	margin-bottom: 2rem;
+	/* margin-bottom: 2rem; */
 }
 .body-content > *:where(:last-child) {
-	margin-top: 5rem;
+	/* margin-top: 5rem; */
 }
 
 .body-content > p {
@@ -427,4 +427,78 @@ main > :last-child {
 	max-width: 50%;
 	transform: translateX(10px);
 	transition: all 0.3s ease;
+}
+
+/* SINGLE PROJECT SETUP */
+.body-content {
+	/* MOVE THIS TO UPPER CLASS SELECTION IF EVERYTHING WORKS FINE */
+	position: relative;
+}
+
+.grid-single-project {
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+	align-items: center;
+	gap: 1rem;
+}
+.grid-single-project > .project-description {
+	max-width: 90%;
+}
+
+.project-description > h2 {
+	font-family: var(--ff-roboto-mono);
+	font-size: var(--fs-800);
+	margin-bottom: 2rem;
+}
+.project-description > p {
+	font-family: var(--ff-montserat);
+	margin-bottom: 2rem;
+	max-width: 90%;
+}
+
+.project-btns-wrapper > * {
+	font-size: var(--fs-300);
+}
+.project-btns-wrapper > *:last-child {
+	margin-left: 1rem;
+}
+
+.btn-back {
+	position: absolute;
+	top: -60px;
+	border: none;
+	padding: 0px;
+	background: none;
+	font-size: 10px;
+}
+.btn-back:hover {
+	color: hsl(var(--primary-clr));
+}
+.btn-back:before {
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	content: '\f30a';
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	padding-right: 10px;
+}
+
+.more-projects {
+	padding-top: 5rem;
+	text-align: center;
+}
+.more-projects > a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: hsl(var(--text-clr));
+}
+.more-projects > a:after {
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	content: '\f30b';
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	padding-left: 10px;
 }
