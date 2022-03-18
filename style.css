@@ -219,11 +219,12 @@ main > :last-child {
 	transform: translate(-50%, -50%);
 }
 
-.body-content > *:where(:not(:last-child)) {
-	/* margin-bottom: 2rem; */
+.body-content > h1,
+.body-content > p {
+	margin-bottom: 2rem;
 }
-.body-content > *:where(:last-child) {
-	/* margin-top: 5rem; */
+.body-content > a {
+	margin-top: 5rem;
 }
 
 .body-content > p {
