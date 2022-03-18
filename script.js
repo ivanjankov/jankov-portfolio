@@ -27,6 +27,7 @@ function changeUI(e) {
 function insertHtmlBasedOnClick(page) {
 	if (page == 'work') {
 		changeBodyContent(workPage);
+		addEventListenerToProjects();
 	} else if (page == 'home') {
 		changeBodyContent(homePage);
 	} else if (page == 'about') {
@@ -42,8 +43,86 @@ function changeBodyContent(content) {
 	bodyElement.innerHTML = content;
 }
 
+function getProjects() {
+	return document.querySelectorAll('.view-project');
+}
+function addEventListenerToProjects() {
+	let projects = getProjects();
+	projects.forEach((project) => {
+		project.addEventListener('click', getTargetedProject);
+	});
+}
+
+function printProject(e) {
+	return e.target.parentElement.parentElement.parentElement.id;
+}
+
+function getTargetedProject(e) {
+	let projectId = printProject(e);
+	for (let project of projects) {
+		if (project.id == projectId) {
+			bodyElement.innerHTML = createSingleProjectHtml(
+				project.title,
+				project.description,
+				project.website,
+				project.github,
+				project.image
+			);
+			selectBackBtn();
+		}
+	}
+}
+function selectBackBtn() {
+	let backBtn = document.getElementById('btn-back');
+	backBtn.addEventListener('click', () => {
+		changeBodyContent(workPage);
+		addEventListenerToProjects();
+	});
+}
+
+function createSingleProjectHtml(title, description, github, url, image) {
+	let currentProject = `
+            <a id="btn-back" class="btn btn-cta btn-back" href="#">Projects</a>
+            <div class="grid-single-project">
+                <div class="project-description">
+                    <h2>${title}</h2>
+                    <p>
+                       ${description}
+                    </p>
+                    <div class="project-btns-wrapper">
+                        <a class="btn btn-cta" href="${url}" target="_blank">Discover</a>
+                        <a class="btn btn-cta" href="${github}" target="_blank">View Code</a>
+                    </div>
+                </div>
+                <div class="img-container">
+                    <img src="${image}" alt="Landing Page" />
+                </div>
+            </div>
+    `;
+	return currentProject;
+}
+
+const projects = [
+	{
+		id: 'liljana',
+		url: 'https://www.liljanasandevska.com',
+		github: 'https://www.github.com',
+		title: 'Liljana Portfolio',
+		description: 'This is liljana website',
+		image: 'img/protfolio-landing.png',
+	},
+	{
+		id: 'honeyheaven',
+		url: 'https://www.google.com',
+		github: 'https://www.github.com',
+		title: 'Honey Heaven',
+		description: 'Website about honey heaven',
+		image: 'img/beehave.png',
+	},
+];
+
 const workPage = `<div class="grid-template__work">
-<div class="project">
+<div id="liljana" class="project">
     <div class="grid-project">
         <div class="project-num">
             <span>01</span>
@@ -55,7 +134,7 @@ const workPage = `<div class="grid-template__work">
             </div>
         </div>
         <div class="project-btn">
-            <a class="view-project" href="single-project.html"
+            <a class="view-project" href="#"
                 >View Project</a
             >
             <img
@@ -65,7 +144,7 @@ const workPage = `<div class="grid-template__work">
         </div>
     </div>
 </div>
-<div class="project">
+<div id="honeyheaven" class="project">
     <div class="grid-project">
         <div class="project-num">
             <span>02</span>
