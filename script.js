@@ -1,5 +1,38 @@
 let bodyElement = document.getElementById('body-content');
 const navLinks = document.querySelectorAll('.nav-link');
+const projects = [
+	{
+		id: 'liljana',
+		url: 'https://www.liljanasandevska.com',
+		github: 'https://www.github.com',
+		title: 'Liljana Portfolio',
+		description:
+			"This is project is portfolio website for Graphic designer. Main goal was to show Liljana's personality and projects through colors and interactivity",
+		image: 'img/protfolio-landing.png',
+		technologies: 'HTML5 CSS3 JavaScript jQuery PHP',
+	},
+	{
+		id: 'honeyheaven',
+		url: '',
+		github: 'https://github.com/ivanjankov/Honey-Heaven',
+		title: 'Honey Heaven',
+		description:
+			'This project is family bussiness about bee growth. Main goal was to show the main goal through interactivity',
+		image: 'img/beehave.png',
+		technologies: 'HTML5 CSS3 JavaScript',
+	},
+	{
+		id: 'islandboy',
+		url: 'https://ivanjankov.github.io/IslandBoy/',
+		github: 'https://github.com/ivanjankov/IslandBoy',
+		title: 'Island Boy',
+		description: 'This is boat painting and  refinishing website',
+		image: 'img/islandboy.png',
+		technologies: 'HTML5 CSS3 JavaScript',
+	},
+];
+
+let workProjects = createProjectFromObj();
 
 navLinks.forEach((link) => {
 	link.addEventListener('click', changeUI);
@@ -26,7 +59,7 @@ function changeUI(e) {
 
 function insertHtmlBasedOnClick(page) {
 	if (page == 'work') {
-		changeBodyContent(workPage);
+		changeBodyContent(workProjects);
 		addEventListenerToProjects();
 	} else if (page == 'home') {
 		changeBodyContent(homePage);
@@ -64,8 +97,8 @@ function getTargetedProject(e) {
 			bodyElement.innerHTML = createSingleProjectHtml(
 				project.title,
 				project.description,
-				project.website,
 				project.github,
+				project.url,
 				project.image
 			);
 			selectBackBtn();
@@ -75,7 +108,7 @@ function getTargetedProject(e) {
 function selectBackBtn() {
 	let backBtn = document.getElementById('btn-back');
 	backBtn.addEventListener('click', () => {
-		changeBodyContent(workPage);
+		changeBodyContent(workProjects);
 		addEventListenerToProjects();
 	});
 }
@@ -102,24 +135,42 @@ function createSingleProjectHtml(title, description, github, url, image) {
 	return currentProject;
 }
 
-const projects = [
-	{
-		id: 'liljana',
-		url: 'https://www.liljanasandevska.com',
-		github: 'https://www.github.com',
-		title: 'Liljana Portfolio',
-		description: 'This is liljana website',
-		image: 'img/protfolio-landing.png',
-	},
-	{
-		id: 'honeyheaven',
-		url: 'https://www.google.com',
-		github: 'https://www.github.com',
-		title: 'Honey Heaven',
-		description: 'Website about honey heaven',
-		image: 'img/beehave.png',
-	},
-];
+// bodyElement.innerHTML = createProjectFromObj();
+
+function createProjectFromObj() {
+	let result = '';
+	let counter = 1;
+	for (let project of projects) {
+		let singleProject = `
+        <div id="${project.id}" class="project">
+            <div class="grid-project">
+                <div class="project-num">
+                    <span>0${counter++}</span>
+                </div>
+                <div class="project-name">
+                    <div class="flex">
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="technologies-used">Html, CSS, JavaScript</p>
+                    </div>
+                </div>
+                <div class="project-btn">
+                    <a class="view-project" href="#"
+                        >View Project</a
+                    >
+                    <img
+                        src="${project.image}"
+                        alt="Thumbnail of Portfolio Website"
+                    />
+                </div>
+            </div>
+        </div>
+        
+        `;
+		result += singleProject;
+	}
+	result = `<div class="grid-template__work">${result}</div>`;
+	return result;
+}
 
 const workPage = `<div class="grid-template__work">
 <div id="liljana" class="project">
