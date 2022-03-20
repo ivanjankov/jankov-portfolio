@@ -11,16 +11,7 @@ const projects = [
 		image: 'img/protfolio-landing.png',
 		technologies: 'HTML5 CSS3 JavaScript jQuery PHP',
 	},
-	{
-		id: 'honeyheaven',
-		url: '#',
-		github: 'https://github.com/ivanjankov/Honey-Heaven',
-		title: 'Honey Heaven',
-		description:
-			'Landing page for a company/family that produces and sells honey products. ',
-		image: 'img/beehave.png',
-		technologies: 'HTML5 CSS3 JavaScript',
-	},
+
 	{
 		id: 'islandboy',
 		url: 'https://ivanjankov.github.io/IslandBoy/',
@@ -32,6 +23,16 @@ const projects = [
 		technologies: 'HTML5 CSS3 JavaScript',
 	},
 	{
+		id: 'portfolio',
+		url: 'https://ivanjankov.github.io/ivanjankov/',
+		github: 'https://github.com/ivanjankov/ivanjankov',
+		title: 'Portfolio Website',
+		description:
+			'Personal portfolio website that can be used to showcase your previous work and skills.',
+		image: 'img/portfolio.png',
+		technologies: 'BootStrap JavaScript',
+	},
+	{
 		id: 'onofo',
 		url: 'https://ivanjankov.github.io/IslandBoy/',
 		github: 'https://github.com/ivanjankov/IslandBoy',
@@ -41,15 +42,16 @@ const projects = [
 		image: 'img/onofo.png',
 		technologies: 'HTML5 CSS3 JavaScript',
 	},
+
 	{
-		id: 'portfolio',
-		url: 'https://ivanjankov.github.io/ivanjankov/',
-		github: 'https://github.com/ivanjankov/ivanjankov',
-		title: 'Portfolio Website',
+		id: 'honeyheaven',
+		url: '#',
+		github: 'https://github.com/ivanjankov/Honey-Heaven',
+		title: 'Honey Heaven',
 		description:
-			'Personal portfolio website that can be used to showcase your previous work and skills.',
-		image: 'img/portfolio.png',
-		technologies: 'BootStrap JavaScript',
+			'Landing page for a company/family that produces and sells honey products. ',
+		image: 'img/beehave.png',
+		technologies: 'HTML5 CSS3 JavaScript',
 	},
 ];
 
@@ -296,8 +298,7 @@ I'm Web Designer <br />
 Based in Skopje, Macedonia
 </h1>
 <p id="home-paragraph" class="fs-400">
-Thank you for visiting my portfolio. Keep exploring you might find
-something we can talk about.
+Thank you for visiting. Keep exploring you might find something you like.
 </p>
 
 <a id="home-btn" href="#" class="btn btn-cta ff-roboto-mono">Contact Me</a>`;
@@ -313,19 +314,19 @@ const aboutPage = `	<div class="grid-template__about">
     <section class="about-section">
         <h4 class="about-section-subheading fs-500">Story</h4>
         <p>
-           Hello there, I am Ivan. I come from small town named Kochani in North Macedonia. Kochani is the place where I spent most of my teenage years. 
+           Hello there, as you already know my name is Ivan. I come from small town named Kochani in North Macedonia. 
         </p>
     </section>
     <section class="about-section">
         <h4 class="about-section-subheading fs-500">EDUCATION</h4>
         <p>
-            When I had to choose my career path in high school I decided to follow my father footsteps and choose to study traffic engineering. After the High school I moved to Bitola where I got a degree in Civil engineering. But after the Covid outbreak I decided to change my career path. I became part of Semos Web Design Academy where I gained knowledge in Web Design Field. 
+            When I had to choose my career path in high school I decided to follow family footsteps and choose to study traffic engineering. After the High school I moved to Bitola where I got a degree in Civil engineering. But after the Covid outbreak I decided to change my career path. I became part of Semos Web Design Academy where I gained knowledge in Web Design technologies. 
         </p>
     </section>
     <section class="about-section">
         <h4 class="about-section-subheading fs-500">Carrer</h4>
         <p>
-            As a college student I participated in the Work and Travel program by US goverment. Right after finishing college I worked 7 months as a subtitute proffesor in the High School in Kochani. After my contract ended I worked as a Driving Instructor for 1 year and 6 months.
+            As a college student I participated in the Work and Travel program by US goverment. After getting the degree I worked 7 months as a subtitute proffessor in the High School in Kochani. After my contract ended I worked as a Driving Instructor for 1 year and 6 months.
         </p>
     </section>
 </div>
@@ -336,10 +337,7 @@ const skillsPage = `<div class="grid-template__skills">
     Skills<span></span>
 </h2>
 <p class="skills-paragraph">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas
-    asperiores laboriosam nostrum? Dolor ipsam consequuntur animi
-    maiores! Tempore eum sunt non esse officiis est repellendus eaque
-    iusto omnis, obcaecati corporis voluptatem quidem?.
+Skills can be taught, personality is inherent. I prefer to keep learning, continue challenging myself, and do interesting things that matter.
 </p>
 
 <div class="development-skills">
@@ -430,4 +428,26 @@ function gsapSKills() {
 		opacity: 0,
 		duration: 0.5,
 	});
+}
+
+// animating boxes
+
+let windowWidth = window.innerWidth;
+let windowHeight = window.innerHeight;
+console.log(windowWidth);
+
+animateBoxes();
+function animateBoxes() {
+	gsap.to('.cube', {
+		duration: 3,
+		x: 700,
+	});
+}
+
+function random(min, max) {
+	if (max == null) {
+		max = min;
+		min = 0;
+	}
+	return Math.random() * (max - min) + min;
 }
