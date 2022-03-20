@@ -7,17 +7,17 @@ const projects = [
 		github: 'https://www.github.com',
 		title: 'Liljana Portfolio',
 		description:
-			"This is project is portfolio website for Graphic designer. Main goal was to show Liljana's personality and projects through colors and interactivity",
+			'Portfolio website for graphic designer. Goal of the portfolio is to show her work through different interactive sections (scratching the lottery ticket or scrolling through social media). Colors and elements should bring you closer to her character and personality',
 		image: 'img/protfolio-landing.png',
 		technologies: 'HTML5 CSS3 JavaScript jQuery PHP',
 	},
 	{
 		id: 'honeyheaven',
-		url: '',
+		url: '#',
 		github: 'https://github.com/ivanjankov/Honey-Heaven',
 		title: 'Honey Heaven',
 		description:
-			'This project is family bussiness about bee growth. Main goal was to show the main goal through interactivity',
+			'Landing page for a company/family that produces and sells honey products. ',
 		image: 'img/beehave.png',
 		technologies: 'HTML5 CSS3 JavaScript',
 	},
@@ -26,9 +26,30 @@ const projects = [
 		url: 'https://ivanjankov.github.io/IslandBoy/',
 		github: 'https://github.com/ivanjankov/IslandBoy',
 		title: 'Island Boy',
-		description: 'This is boat painting and  refinishing website',
+		description:
+			'Landing page for a company that does boats refinishing and repainting. Simple and clean display of services, about section and gallery of previous work',
 		image: 'img/islandboy.png',
 		technologies: 'HTML5 CSS3 JavaScript',
+	},
+	{
+		id: 'onofo',
+		url: 'https://ivanjankov.github.io/IslandBoy/',
+		github: 'https://github.com/ivanjankov/IslandBoy',
+		title: 'Onofo',
+		description:
+			'Onofo is a SaaS company. Their main product is AI-Powered notes taking platform and app. Onofo is used to take notes while in a meeting, class or learning online',
+		image: 'img/onofo.png',
+		technologies: 'HTML5 CSS3 JavaScript',
+	},
+	{
+		id: 'portfolio',
+		url: 'https://ivanjankov.github.io/ivanjankov/',
+		github: 'https://github.com/ivanjankov/ivanjankov',
+		title: 'Portfolio Website',
+		description:
+			'Personal portfolio website that can be used to showcase your previous work and skills.',
+		image: 'img/portfolio.png',
+		technologies: 'BootStrap JavaScript',
 	},
 ];
 
@@ -150,7 +171,7 @@ function createProjectFromObj() {
                 <div class="project-name">
                     <div class="flex">
                         <h3 class="project-title">${project.title}</h3>
-                        <p class="technologies-used">Html, CSS, JavaScript</p>
+                        <p class="technologies-used">${project.technologies}</p>
                     </div>
                 </div>
                 <div class="project-btn">
@@ -287,34 +308,19 @@ const aboutPage = `	<div class="grid-template__about">
     <section class="about-section">
         <h4 class="about-section-subheading fs-500">Story</h4>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Aperiam, possimus incidunt nam maxime inventore voluptatum
-            dolorum nihil iure consequatur odio aut culpa nisi aliquid? Ab
-            cupiditate, consequatur, ipsam iusto fugit nostrum neque magni
-            labore unde iure consectetur eaque dolorem quaerat maiores dicta
-            a. Nesciunt sed, nulla perferendis, minima esse ullam.
+           Hello there, I am Ivan. I come from small town named Kochani in North Macedonia. Kochani is the place where I spent most of my teenage years. 
         </p>
     </section>
     <section class="about-section">
         <h4 class="about-section-subheading fs-500">EDUCATION</h4>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Aperiam, possimus incidunt nam maxime inventore voluptatum
-            dolorum nihil iure consequatur odio aut culpa nisi aliquid? Ab
-            cupiditate, consequatur, ipsam iusto fugit nostrum neque magni
-            labore unde iure consectetur eaque dolorem quaerat maiores dicta
-            a. Nesciunt sed, nulla perferendis, minima esse ullam.
+            When I had to choose my career path in high school I decided to follow my father footsteps and choose to study traffic engineering. After the High school I moved to Bitola where I got a degree in Civil engineering. But after the Covid outbreak I decided to change my career path. I became part of Semos Web Design Academy where I gained knowledge in Web Design Field. 
         </p>
     </section>
     <section class="about-section">
-        <h4 class="about-section-subheading fs-500">CArrer</h4>
+        <h4 class="about-section-subheading fs-500">Carrer</h4>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Aperiam, possimus incidunt nam maxime inventore voluptatum
-            dolorum nihil iure consequatur odio aut culpa nisi aliquid? Ab
-            cupiditate, consequatur, ipsam iusto fugit nostrum neque magni
-            labore unde iure consectetur eaque dolorem quaerat maiores dicta
-            a. Nesciunt sed, nulla perferendis, minima esse ullam.
+            As a college student I participated in the Work and Travel program by US goverment. Right after finishing college I worked 7 months as a subtitute proffesor in the High School in Kochani. After my contract ended I worked as a Driving Instructor for 1 year and 6 months.
         </p>
     </section>
 </div>
