@@ -12,7 +12,7 @@
 
 	/* font size */
 
-	--fs-900: 2.81rem;
+	--fs-900: clamp(1.5rem, 4vw + 1rem, 2.81rem);
 	--fs-800: 1.75rem;
 	--fs-700: 1.5rem;
 	--fs-600: 1.25rem;
@@ -310,6 +310,9 @@ main > :last-child {
 	.nav-link:hover {
 		transform: translate(0px, 20px);
 	}
+	.project-num:before {
+		display: none !important;
+	}
 }
 
 /* WORK */
@@ -447,8 +450,9 @@ main > :last-child {
 }
 
 .project-description > h2 {
-	font-family: var(--ff-roboto-mono);
+	font-family: var(--ff-roboto-slab);
 	font-size: var(--fs-800);
+	font-weight: 500;
 	margin-bottom: 2rem;
 }
 .project-description > p {
@@ -542,4 +546,54 @@ main > :last-child {
 }
 .design-skills > .skills > li {
 	padding-right: 1rem;
+}
+
+/* QUERRIES */
+
+@media (max-width: 1500px) {
+	.project {
+		max-width: 700px;
+	}
+	.project-num:before {
+		width: 60px;
+		left: -65px;
+	}
+
+	.project-title {
+		font-size: var(--fs-600);
+	}
+
+	.technologies-used {
+		font-size: var(--fs-300);
+	}
+
+	.view-project {
+		font-size: 12px;
+		word-break: keep-all;
+		flex: 1 2 100%;
+	}
+}
+@media (max-width: 1300px) {
+	.project-num:before {
+		width: 40px;
+		left: -45px;
+	}
+}
+@media (max-width: 900px) {
+	.navigation {
+		font-size: var(--fs-600);
+	}
+	.nav-link.active::before {
+		width: 90% !important;
+	}
+	#body-content {
+		text-align: center;
+	}
+	#body-content > p {
+		width: 100%;
+	}
+	#body-content > a {
+		margin-top: 2rem;
+		padding: 0.3rem 1.4rem;
+	}
 }
