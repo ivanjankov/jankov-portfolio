@@ -82,12 +82,16 @@ function insertHtmlBasedOnClick(page) {
 	if (page == 'work') {
 		changeBodyContent(workProjects);
 		addEventListenerToProjects();
+		gsapWork();
 	} else if (page == 'home') {
 		changeBodyContent(homePage);
+		gsapHome();
 	} else if (page == 'about') {
 		changeBodyContent(aboutPage);
+		gsapAbout();
 	} else if (page == 'skills') {
 		changeBodyContent(skillsPage);
+		gsapSKills();
 	} else if (page == 'contact') {
 		changeBodyContent(contactPage);
 	}
@@ -122,6 +126,7 @@ function getTargetedProject(e) {
 				project.url,
 				project.image
 			);
+			gsapProject();
 			selectBackBtn();
 		}
 	}
@@ -286,16 +291,16 @@ const workPage = `<div class="grid-template__work">
 </div>
 </div>`;
 
-const homePage = `<h1 class="ff-roboto-slab fs-900">
+const homePage = `<h1 id="home-title" class="ff-roboto-slab fs-900">
 I'm Web Designer <br />
 Based in Skopje, Macedonia
 </h1>
-<p class="fs-400">
+<p id="home-paragraph" class="fs-400">
 Thank you for visiting my portfolio. Keep exploring you might find
 something we can talk about.
 </p>
 
-<a href="#" class="btn btn-cta ff-roboto-mono">Contact Me</a>`;
+<a id="home-btn" href="#" class="btn btn-cta ff-roboto-mono">Contact Me</a>`;
 
 const aboutPage = `	<div class="grid-template__about">
 <div class="profile-pic">
@@ -327,10 +332,10 @@ const aboutPage = `	<div class="grid-template__about">
 </div>`;
 
 const skillsPage = `<div class="grid-template__skills">
-<h2 class="page-heading ff-roboto-mono fs-700 fw-500">
+<h2 id="skills-heading" class="page-heading ff-roboto-mono fs-700 fw-500">
     Skills<span></span>
 </h2>
-<p>
+<p class="skills-paragraph">
     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas
     asperiores laboriosam nostrum? Dolor ipsam consequuntur animi
     maiores! Tempore eum sunt non esse officiis est repellendus eaque
@@ -341,14 +346,16 @@ const skillsPage = `<div class="grid-template__skills">
     <h3 class="skills-title">Development Skills</h3>
     <div>
         <ul class="skills">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Javascript</li>
+            <li class="single-skill">HTML</li>
+            <li class="single-skill">CSS</li>
+            <li class="single-skill">Javascript</li>
+            <li class="single-skill">Bootstrap</li>
         </ul>
         <ul class="skills">
-            <li>PHP</li>
-            <li>MySQL</li>
-            <li>jQuery</li>
+            <li class="single-skill">PHP</li>
+            <li class="single-skill">MySQL</li>
+            <li class="single-skill">jQuery</li>
+            <li class="single-skill">Git</li>
         </ul>
     </div>
 </div>
@@ -361,3 +368,66 @@ const skillsPage = `<div class="grid-template__skills">
     </ul>
 </div>
 </div>`;
+
+// gsap animtaion functions
+
+function gsapHome() {
+	gsap.from('#home-title, #home-paragraph, #home-btn', {
+		opacity: 0,
+		delay: 0.5,
+		x: 400,
+		stagger: 0.25,
+		ease: 'ease',
+	});
+}
+function gsapWork() {
+	gsap.from('.project', {
+		opacity: 0,
+		delay: 0.5,
+		x: 400,
+		stagger: 0.35,
+		ease: 'ease',
+	});
+}
+
+function gsapProject() {
+	gsap.from('.project-description', {
+		opacity: 0,
+		duration: 1.5,
+		y: 200,
+	});
+	gsap.from('.img-container', {
+		opacity: 0,
+		x: 400,
+		ease: 'ease',
+	});
+}
+
+function gsapAbout() {
+	gsap.from('.about-section', {
+		opacity: 0,
+		duration: 1,
+		x: 200,
+		stagger: 0.25,
+	});
+	gsap.from('.profile-pic', {
+		opacity: 0,
+		duration: 1.5,
+	});
+}
+function gsapSKills() {
+	gsap.from('.single-skill, .design-skills', {
+		opacity: 0,
+		duration: 1,
+		x: -100,
+		scale: 1.5,
+		stagger: {
+			ease: 'power3.inOut',
+			each: 0.2,
+		},
+	});
+	gsap.from('.skills-paragraph, .skills-heading', {
+		opacity: 0,
+		duration: 0.5,
+	});
+}
