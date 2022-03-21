@@ -643,6 +643,12 @@ main > :last-child {
 		padding: 0.3rem 1rem;
 		font-size: 14px;
 	}
+	.grid-single-project > .project-description {
+		max-width: 100%;
+	}
+	.project-description > p {
+		max-width: 100%;
+	}
 }
 @media (max-width: 600px) {
 	.grid {
@@ -684,6 +690,24 @@ main > :last-child {
 
 	.grid-template__skills {
 		padding-inline: 1rem;
+	}
+	.grid-single-project > .project-description {
+		max-width: 100%;
+	}
+	.project-description > p {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 385px) {
+	.project-btns-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		text-align: center;
+	}
+	.project-btns-wrapper > :last-child {
+		margin-left: 0rem;
 	}
 }
 
