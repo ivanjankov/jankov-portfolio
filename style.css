@@ -56,6 +56,7 @@ p {
 /* body set up */
 
 body {
+	position: relative;
 	font-family: var(--ff-montserat);
 	font-size: 1rem;
 	color: hsl(var(--text-clr));
@@ -64,7 +65,7 @@ body {
 	display: grid;
 	grid-template-rows: min-content 1fr;
 	min-height: 100vh;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 /* images setup */
@@ -145,7 +146,7 @@ picture {
 
 .grid {
 	display: grid;
-	grid-template-columns: minmax(2rem, 0.5fr) 1fr 3fr minmax(2rem, 0.5fr);
+	grid-template-columns: minmax(2rem, 1fr) 1.5fr 3fr minmax(2rem, 1.5fr);
 	gap: 4rem;
 	place-items: center;
 }
@@ -167,6 +168,21 @@ picture {
 
 header {
 	padding: 0.5rem 0;
+}
+
+.header-icon-container {
+	display: flex;
+	justify-content: end;
+	padding-block: 1rem;
+	gap: 1rem;
+	font-size: 25px;
+}
+.header-icon-container > a {
+	text-decoration: none;
+	color: hsl(var(--text-clr));
+}
+.header-icon-container > a:hover {
+	transform: scale(1.2);
 }
 
 /* navigation */
@@ -628,7 +644,7 @@ main > :last-child {
 }
 @media (max-width: 600px) {
 	.grid {
-		grid-template-columns: minmax(1rem, 2rem) 1fr minmax(1rem, 2rem);
+		grid-template-columns: 1fr;
 	}
 	.navigation {
 		grid-column: 1/4 !important;
@@ -667,4 +683,21 @@ main > :last-child {
 	.grid-template__skills {
 		padding-inline: 1rem;
 	}
+}
+
+.cube {
+	position: absolute;
+	width: 50px;
+}
+.cube1 {
+	position: absolute;
+	width: 30px;
+	bottom: 0;
+	left: 0;
+}
+.cube2 {
+	position: absolute;
+	width: 20px;
+	right: 0;
+	top: 0;
 }

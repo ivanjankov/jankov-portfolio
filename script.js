@@ -34,8 +34,8 @@ const projects = [
 	},
 	{
 		id: 'onofo',
-		url: 'https://ivanjankov.github.io/IslandBoy/',
-		github: 'https://github.com/ivanjankov/IslandBoy',
+		url: 'https://github.com/ivanjankov/Onofo-SaaS/',
+		github: 'https://github.com/ivanjankov/Onofo-SaaS/',
 		title: 'Onofo',
 		description:
 			'Onofo is a SaaS company. Their main product is AI-Powered notes taking platform and app. Onofo is used to take notes while in a meeting, class or learning online',
@@ -45,7 +45,7 @@ const projects = [
 
 	{
 		id: 'honeyheaven',
-		url: '#',
+		url: 'https://github.com/ivanjankov/Honey-Heaven',
 		github: 'https://github.com/ivanjankov/Honey-Heaven',
 		title: 'Honey Heaven',
 		description:
@@ -326,7 +326,7 @@ const aboutPage = `	<div class="grid-template__about">
     <section class="about-section">
         <h4 class="about-section-subheading fs-500">Carrer</h4>
         <p>
-            As a college student I participated in the Work and Travel program by US goverment. After getting the degree I worked 7 months as a subtitute proffessor in the High School in Kochani. After my contract ended I worked as a Driving Instructor for 1 year and 6 months.
+            As a college student I participated in the Work and Travel program in US. After I got the college degree I worked 7 months as a subtitute proffessor in the High School in my home town. When my contract was done I started to work as a Driving Instructor for 1 year and 6 months. And since I finished the Web Design Academy I started working as a freelancer.
         </p>
     </section>
 </div>
@@ -434,13 +434,24 @@ function gsapSKills() {
 
 let windowWidth = window.innerWidth;
 let windowHeight = window.innerHeight;
-console.log(windowWidth);
+console.log(windowHeight);
 
 animateBoxes();
 function animateBoxes() {
-	gsap.to('.cube', {
-		duration: 3,
-		x: 700,
+	gsap.from('.cube', {
+		duration: 200,
+		x: windowWidth,
+		y: windowHeight,
+	});
+	gsap.from('.cube1', {
+		duration: 220,
+		x: windowWidth,
+		y: -windowHeight,
+	});
+	gsap.from('.cube2', {
+		duration: 120,
+		x: -windowWidth,
+		y: windowHeight,
 	});
 }
 
