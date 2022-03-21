@@ -138,6 +138,7 @@ picture {
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
+	padding-inline: 2rem;
 }
 
 .uppercase {
@@ -146,7 +147,7 @@ picture {
 
 .grid {
 	display: grid;
-	grid-template-columns: minmax(2rem, 1fr) 1.5fr 3fr minmax(2rem, 1.5fr);
+	grid-template-columns: minmax(2rem, 1fr) 1.5fr 5fr minmax(2rem, 1.5fr);
 	gap: 4rem;
 	place-items: center;
 }
