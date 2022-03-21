@@ -1,5 +1,6 @@
 let bodyElement = document.getElementById('body-content');
 const navLinks = document.querySelectorAll('.nav-link');
+let homeContactBtn;
 const projects = [
 	{
 		id: 'liljana',
@@ -88,6 +89,7 @@ function insertHtmlBasedOnClick(page) {
 	} else if (page == 'home') {
 		changeBodyContent(homePage);
 		gsapHome();
+		addEventListenerHomeContactBtn();
 	} else if (page == 'about') {
 		changeBodyContent(aboutPage);
 		gsapAbout();
@@ -163,8 +165,6 @@ function createSingleProjectHtml(title, description, github, url, image) {
 	return currentProject;
 }
 
-// bodyElement.innerHTML = createProjectFromObj();
-
 function createProjectFromObj() {
 	let result = '';
 	let counter = 1;
@@ -200,97 +200,41 @@ function createProjectFromObj() {
 	return result;
 }
 
-const workPage = `<div class="grid-template__work">
-<div id="liljana" class="project">
-    <div class="grid-project">
-        <div class="project-num">
-            <span>01</span>
-        </div>
-        <div class="project-name">
-            <div class="flex">
-                <h3 class="project-title">Liljana Portfolio</h3>
-                <p class="technologies-used">Html, CSS, JavaScript</p>
-            </div>
-        </div>
-        <div class="project-btn">
-            <a class="view-project" href="#"
-                >View Project</a
-            >
-            <img
-                src="img/protfolio-landing.png"
-                alt="Thumbnail of Portfolio Website"
-            />
-        </div>
-    </div>
+addEventListenerHomeContactBtn();
+
+function addEventListenerHomeContactBtn() {
+	homeContactBtn = document.getElementById('home-btn');
+	homeContactBtn.addEventListener('click', () => {
+		changeBodyContent(contactPage);
+		removeActiveClassFromNavLinks();
+		document.getElementById('contact').classList.add('active');
+	});
+}
+
+const contactPage = `<div class="grid-template__contact">
+<h2 class="page-heading ff-roboto-mono fs-700 fw-500">
+	Get in touch<span></span>
+</h2>
+<h3>If you need any of my services drop a message.</h3>
 </div>
-<div id="honeyheaven" class="project">
-    <div class="grid-project">
-        <div class="project-num">
-            <span>02</span>
-        </div>
-        <div class="project-name">
-            <div class="flex">
-                <h3 class="project-title">Honey Heaven</h3>
-                <p class="technologies-used">Html, CSS, JavaScript</p>
-            </div>
-        </div>
-        <div class="project-btn">
-            <a class="view-project" href="#">View Project</a>
-            <img src="img/protfolio-landing.png" alt="Wazzup" />
-        </div>
-    </div>
-</div>
-<div class="project">
-    <div class="grid-project">
-        <div class="project-num">
-            <span>03</span>
-        </div>
-        <div class="project-name">
-            <div class="flex">
-                <h3 class="project-title">Onofo Saas</h3>
-                <p class="technologies-used">Html, CSS, JavaScript</p>
-            </div>
-        </div>
-        <div class="project-btn">
-            <a class="view-project" href="#">View Project</a>
-            <img src="img/protfolio-landing.png" alt="Wazzup" />
-        </div>
-    </div>
-</div>
-<div class="project">
-    <div class="grid-project">
-        <div class="project-num">
-            <span>04</span>
-        </div>
-        <div class="project-name">
-            <div class="flex">
-                <h3 class="project-title">Island Boy</h3>
-                <p class="technologies-used">Html, CSS, JavaScript</p>
-            </div>
-        </div>
-        <div class="project-btn">
-            <a class="view-project" href="#">View Project</a>
-            <img src="img/protfolio-landing.png" alt="Wazzup" />
-        </div>
-    </div>
-</div>
-<div class="project">
-    <div class="grid-project">
-        <div class="project-num">
-            <span>05</span>
-        </div>
-        <div class="project-name">
-            <div class="flex">
-                <h3 class="project-title">Liljana Portfolio</h3>
-                <p class="technologies-used">Html, CSS, JavaScript</p>
-            </div>
-        </div>
-        <div class="project-btn">
-            <a class="view-project" href="#">View Project</a>
-            <img src="img/protfolio-landing.png" alt="Wazzup" />
-        </div>
-    </div>
-</div>
+
+<div class="form-wrapper">
+<form action="https://formspree.io/f/xbjwkbpp"
+method="POST">
+	<div class="contact-field-control">
+		<input type="text" name="name" placeholder="Your Name.." />
+		<div class="input-filed-line"></div>
+	</div>
+	<div class="contact-field-control">
+		<input type="text" name="name" placeholder="E-mail.." />
+		<div class="input-filed-line"></div>
+	</div>
+	<div class="contact-field-control">
+		<textarea name="message" id="" cols="30" rows="10" placeholder="Message.."></textarea>
+		<div class="input-filed-line"></div>
+	</div>
+	<button type="submit" class="btn btn-submit">Send</button>
+</form>
 </div>`;
 
 const homePage = `<h1 id="home-title" class="ff-roboto-slab fs-900">
@@ -300,12 +244,8 @@ Based in Skopje, Macedonia
 <p id="home-paragraph" class="fs-400">
 Thank you for visiting. Keep exploring you might find something you like.
 </p>
-
+<a id="home-btn" href="#" class="btn btn-cta ff-roboto-mono">Contact Me</a> 
 `;
-
-{
-	/* <a id="home-btn" href="#" class="btn btn-cta ff-roboto-mono">Contact Me</a> */
-}
 
 const aboutPage = `	<div class="grid-template__about">
 <div class="profile-pic">
@@ -438,7 +378,6 @@ function gsapSKills() {
 
 let windowWidth = window.innerWidth;
 let windowHeight = window.innerHeight;
-console.log(windowHeight);
 
 animateBoxes();
 function animateBoxes() {
