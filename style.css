@@ -727,3 +727,84 @@ main > :last-child {
 	right: 0;
 	top: 0;
 }
+
+/* contact */
+
+.grid-template__contact > h2 {
+	margin-bottom: 1rem;
+	text-align: start;
+}
+
+.body-content {
+	justify-self: stretch;
+}
+
+.grid-template__contact {
+	display: grid;
+	place-items: start;
+	justify-self: stretch;
+	grid-column: 1/4;
+	text-align: start;
+}
+
+input[type='text'],
+textarea {
+	font-family: var(--ff-roboto-mono);
+	font-size: var(--fs-300);
+	width: 100%;
+	height: 3rem;
+	margin-top: 1.5rem;
+	border: 0;
+}
+input[type='text']:focus,
+textarea {
+	outline: 0;
+}
+.input-filed-line,
+textarea {
+	position: relative;
+	height: 2px;
+	background-image: linear-gradient(
+		hsl(var(--primary-clr)),
+		hsl(var(--primary-clr))
+	);
+	background-repeat: no-repeat;
+	background-position: 0% 50%;
+	background-size: 0% 100%;
+	transition: all 0.5s;
+}
+input[type='text']:focus ~ .input-filed-line,
+textarea:focus ~ .input-filed-line {
+	background-size: 100% 100%;
+	transition: all 0.5s;
+}
+
+textarea {
+	width: 100%;
+	min-height: 100px;
+	font-size: var(--fs-400);
+}
+
+.form-wrapper {
+	margin-top: 3rem;
+}
+
+.btn-submit {
+	font-size: var(--fs-300);
+	font-family: var(--ff-roboto-mono);
+	font-weight: 500;
+	margin-top: 3rem;
+	background-image: linear-gradient(
+		hsl(var(--primary-clr)),
+		hsl(var(--primary-clr))
+	);
+	background-repeat: no-repeat;
+	background-size: 0% 0%;
+	background-position: 50% 50%;
+	letter-spacing: 1px;
+}
+.btn-submit:hover {
+	background-size: 100% 100%;
+	transition: all 0.5s ease;
+	color: #fff;
+}
