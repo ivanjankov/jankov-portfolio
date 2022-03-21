@@ -65,7 +65,8 @@ body {
 	display: grid;
 	grid-template-rows: min-content 1fr;
 	min-height: 100vh;
-	overflow: hidden;
+	overflow-x: hidden;
+	padding-bottom: 2rem;
 }
 
 /* images setup */
