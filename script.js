@@ -8,7 +8,7 @@ const projects = [
 		title: 'Liljana Portfolio',
 		description:
 			'Portfolio website for graphic designer. Goal of the portfolio is to show her work through different interactive sections (scratching the lottery ticket or scrolling through social media). Colors and elements should bring you closer to her character and personality',
-		image: 'img/protfolio-landing.png',
+		image: 'img/portfolio-png.png',
 		technologies: 'HTML5 CSS3 JavaScript jQuery PHP',
 	},
 
@@ -19,7 +19,7 @@ const projects = [
 		title: 'Island Boy',
 		description:
 			'Landing page for a company that does boats refinishing and repainting. Simple and clean display of services, about section and gallery of previous work',
-		image: 'img/islandboy.png',
+		image: 'img/islandboy-png.png',
 		technologies: 'HTML5 CSS3 JavaScript',
 	},
 	{
@@ -29,7 +29,7 @@ const projects = [
 		title: 'Portfolio Website',
 		description:
 			'Personal portfolio website that can be used to showcase your previous work and skills.',
-		image: 'img/portfolio.png',
+		image: 'img/personal-png.png',
 		technologies: 'BootStrap JavaScript',
 	},
 	{
@@ -39,7 +39,7 @@ const projects = [
 		title: 'Onofo',
 		description:
 			'Onofo is a SaaS company. Their main product is AI-Powered notes taking platform and app. Onofo is used to take notes while in a meeting, class or learning online',
-		image: 'img/onofo.png',
+		image: 'img/onofo-png.png',
 		technologies: 'HTML5 CSS3 JavaScript',
 	},
 
@@ -50,7 +50,7 @@ const projects = [
 		title: 'Honey Heaven',
 		description:
 			'Landing page for a company/family that produces and sells honey products. ',
-		image: 'img/beehave.png',
+		image: 'img/behave-png.png',
 		technologies: 'HTML5 CSS3 JavaScript',
 	},
 ];
@@ -301,7 +301,11 @@ Based in Skopje, Macedonia
 Thank you for visiting. Keep exploring you might find something you like.
 </p>
 
-<a id="home-btn" href="#" class="btn btn-cta ff-roboto-mono">Contact Me</a>`;
+`;
+
+{
+	/* <a id="home-btn" href="#" class="btn btn-cta ff-roboto-mono">Contact Me</a> */
+}
 
 const aboutPage = `	<div class="grid-template__about">
 <div class="profile-pic">
@@ -320,7 +324,7 @@ const aboutPage = `	<div class="grid-template__about">
     <section class="about-section">
         <h4 class="about-section-subheading fs-500">EDUCATION</h4>
         <p>
-            When I had to choose my career path in high school I decided to follow family footsteps and choose to study traffic engineering. After the High school I moved to Bitola where I got a degree in Civil engineering. But after the Covid outbreak I decided to change my career path. I became part of Semos Web Design Academy where I gained knowledge in Web Design technologies. 
+            When I had to choose my career path in high school I decided to follow family footsteps and study traffic engineering. After the High school I moved to Bitola where I got a degree in Civil engineering. Since the Covid outbreak I decided to change my career path. I became part of Semos Web Design Academy where I gained knowledge in Web Design technologies. 
         </p>
     </section>
     <section class="about-section">
@@ -347,12 +351,12 @@ Skills can be taught, personality is inherent. I prefer to keep learning, contin
             <li class="single-skill">HTML</li>
             <li class="single-skill">CSS</li>
             <li class="single-skill">Javascript</li>
-            <li class="single-skill">Bootstrap</li>
+            <li class="single-skill">jQuery</li>
         </ul>
         <ul class="skills">
+		<li class="single-skill">Bootstrap</li>
             <li class="single-skill">PHP</li>
             <li class="single-skill">MySQL</li>
-            <li class="single-skill">jQuery</li>
             <li class="single-skill">Git</li>
         </ul>
     </div>
