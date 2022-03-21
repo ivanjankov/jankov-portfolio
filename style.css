@@ -660,7 +660,9 @@ main > :last-child {
 	}
 
 	.body-content > #home-btn {
-		justify-content: center;
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 	#home-title,
 	#home-btn,
