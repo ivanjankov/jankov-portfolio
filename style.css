@@ -63,6 +63,7 @@ body {
   background-color: hsl(var(--bg-clr));
   line-height: 1.5;
   display: grid;
+  grid-template-rows: -webkit-min-content 1fr;
   grid-template-rows: min-content 1fr;
   min-height: 100vh;
   overflow-x: hidden;
@@ -188,9 +189,6 @@ header {
 }
 
 /* navigation */
-main {
-  /* outline: 1px solid limegreen; */
-}
 
 main > :first-child {
   grid-column: 2;
@@ -202,30 +200,23 @@ main > :last-child {
 .nav-list {
   list-style: none;
   padding: 0;
-}
-.nav-list > * {
-  padding: 0.55rem 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-link {
-  display: inline-block;
-  text-decoration: none;
+  cursor: pointer;
+  padding: 8px 0;
   color: hsl(var(--text-clr));
-  transform: translateX(0px);
-  transition: all 0.3s ease;
 }
-.nav-link:hover {
-  color: hsl(var(--primary-clr));
-  transform: translateX(40px);
-  transition: all 0.3s ease;
-}
-.nav-link.active {
+
+.nav-link-label.active {
   position: relative;
   color: hsl(var(--primary-clr));
   transform: translateX(40px);
   transition: transform 0.3s ease;
 }
-.nav-link.active::before {
+.nav-link-label.active::before {
   position: absolute;
   content: "";
   display: inline-block;
@@ -235,6 +226,22 @@ main > :last-child {
   left: 50%;
   bottom: 40%;
   transform: translate(-50%, -50%);
+}
+
+.nav-link:hover .nav-link-label {
+  color: hsl(var(--primary-clr));
+  display: inline-block;
+  cursor: pointer;
+  transform: translateX(30px);
+  transition: all 0.3s ease;
+}
+
+.nav-link-label {
+  display: inline-block;
+  text-decoration: none;
+  color: hsl(var(--text-clr));
+  transition: all 0.6s ease;
+  transform: translateX(0px);
 }
 
 .body-content > h1,

@@ -1,5 +1,5 @@
 let bodyElement = document.getElementById("body-content");
-const navLinks = document.querySelectorAll(".nav-link");
+const navLinks = document.querySelectorAll(".nav-link-label");
 let homeContactBtn;
 const projects = [
   {
