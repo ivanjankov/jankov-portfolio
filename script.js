@@ -1,150 +1,150 @@
-let bodyElement = document.getElementById('body-content');
-const navLinks = document.querySelectorAll('.nav-link');
+let bodyElement = document.getElementById("body-content");
+const navLinks = document.querySelectorAll(".nav-link-label");
 let homeContactBtn;
 const projects = [
-	{
-		id: 'liljana',
-		url: 'https://www.liljanasandevska.com',
-		github: 'https://www.github.com',
-		title: 'Liljana Portfolio',
-		description:
-			'Portfolio website for graphic designer. Goal of the portfolio is to show her work through different interactive sections (scratching the lottery ticket or scrolling through social media). Colors and elements should bring you closer to her character and personality',
-		image: 'img/portfolio-png.png',
-		technologies: 'HTML5 CSS3 JavaScript jQuery PHP',
-	},
+  {
+    id: "liljana",
+    url: "https://www.liljanasandevska.com",
+    github: "https://www.github.com",
+    title: "Liljana Portfolio",
+    description:
+      "Portfolio website for graphic designer. Goal of the portfolio is to show her work through different interactive sections (scratching the lottery ticket or scrolling through social media). Colors and elements should bring you closer to her character and personality",
+    image: "img/portfolio-png.png",
+    technologies: "HTML5 CSS3 JavaScript jQuery PHP",
+  },
 
-	{
-		id: 'islandboy',
-		url: 'https://ivanjankov.github.io/IslandBoy/',
-		github: 'https://github.com/ivanjankov/IslandBoy',
-		title: 'Island Boy',
-		description:
-			'Landing page for a company that does boats refinishing and repainting. Simple and clean display of services, about section and gallery of previous work',
-		image: 'img/islandboy-png.png',
-		technologies: 'HTML5 CSS3 JavaScript',
-	},
-	{
-		id: 'portfolio',
-		url: 'https://ivanjankov.github.io/ivanjankov/',
-		github: 'https://github.com/ivanjankov/ivanjankov',
-		title: 'Portfolio Website',
-		description:
-			'Personal portfolio website that can be used to showcase your previous work and skills.',
-		image: 'img/personal-png.png',
-		technologies: 'BootStrap JavaScript',
-	},
-	{
-		id: 'onofo',
-		url: 'https://github.com/ivanjankov/Onofo-SaaS/',
-		github: 'https://github.com/ivanjankov/Onofo-SaaS/',
-		title: 'Onofo',
-		description:
-			'Onofo is a SaaS company. Their main product is AI-Powered notes taking platform and app. Onofo is used to take notes while in a meeting, class or learning online',
-		image: 'img/onofo-png.png',
-		technologies: 'HTML5 CSS3 JavaScript',
-	},
+  {
+    id: "islandboy",
+    url: "https://ivanjankov.github.io/IslandBoy/",
+    github: "https://github.com/ivanjankov/IslandBoy",
+    title: "Island Boy",
+    description:
+      "Landing page for a company that does boats refinishing and repainting. Simple and clean display of services, about section and gallery of previous work",
+    image: "img/islandboy-png.png",
+    technologies: "HTML5 CSS3 JavaScript",
+  },
+  {
+    id: "portfolio",
+    url: "https://ivanjankov.github.io/ivanjankov/",
+    github: "https://github.com/ivanjankov/ivanjankov",
+    title: "Portfolio Website",
+    description:
+      "Personal portfolio website that can be used to showcase your previous work and skills.",
+    image: "img/personal-png.png",
+    technologies: "BootStrap JavaScript",
+  },
+  {
+    id: "onofo",
+    url: "https://github.com/ivanjankov/Onofo-SaaS/",
+    github: "https://github.com/ivanjankov/Onofo-SaaS/",
+    title: "Onofo",
+    description:
+      "Onofo is a SaaS company. Their main product is AI-Powered notes taking platform and app. Onofo is used to take notes while in a meeting, class or learning online",
+    image: "img/onofo-png.png",
+    technologies: "HTML5 CSS3 JavaScript",
+  },
 
-	{
-		id: 'honeyheaven',
-		url: 'https://github.com/ivanjankov/Honey-Heaven',
-		github: 'https://github.com/ivanjankov/Honey-Heaven',
-		title: 'Honey Heaven',
-		description:
-			'Landing page for a company/family that produces and sells honey products. ',
-		image: 'img/behave-png.png',
-		technologies: 'HTML5 CSS3 JavaScript',
-	},
+  {
+    id: "honeyheaven",
+    url: "https://github.com/ivanjankov/Honey-Heaven",
+    github: "https://github.com/ivanjankov/Honey-Heaven",
+    title: "Honey Heaven",
+    description:
+      "Landing page for a company/family that produces and sells honey products. ",
+    image: "img/behave-png.png",
+    technologies: "HTML5 CSS3 JavaScript",
+  },
 ];
 
 let workProjects = createProjectFromObj();
 
 navLinks.forEach((link) => {
-	link.addEventListener('click', changeUI);
+  link.addEventListener("click", changeUI);
 });
 
 function getMenuLinkData(e) {
-	removeActiveClassFromNavLinks();
-	e.target.classList.add('active');
+  removeActiveClassFromNavLinks();
+  e.target.classList.add("active");
 }
 
 function removeActiveClassFromNavLinks() {
-	navLinks.forEach((link) => {
-		if (link.classList.contains('active')) {
-			link.classList.remove('active');
-		}
-	});
+  navLinks.forEach((link) => {
+    if (link.classList.contains("active")) {
+      link.classList.remove("active");
+    }
+  });
 }
 
 function changeUI(e) {
-	getMenuLinkData(e);
-	let navLinkTargetPage = e.target.getAttribute('data-page');
-	insertHtmlBasedOnClick(navLinkTargetPage);
+  getMenuLinkData(e);
+  let navLinkTargetPage = e.target.getAttribute("data-page");
+  insertHtmlBasedOnClick(navLinkTargetPage);
 }
 
 function insertHtmlBasedOnClick(page) {
-	if (page == 'work') {
-		changeBodyContent(workProjects);
-		addEventListenerToProjects();
-		gsapWork();
-	} else if (page == 'home') {
-		changeBodyContent(homePage);
-		gsapHome();
-		addEventListenerHomeContactBtn();
-	} else if (page == 'about') {
-		changeBodyContent(aboutPage);
-		gsapAbout();
-	} else if (page == 'skills') {
-		changeBodyContent(skillsPage);
-		gsapSKills();
-	} else if (page == 'contact') {
-		changeBodyContent(contactPage);
-	}
+  if (page == "work") {
+    changeBodyContent(workProjects);
+    addEventListenerToProjects();
+    gsapWork();
+  } else if (page == "home") {
+    changeBodyContent(homePage);
+    gsapHome();
+    addEventListenerHomeContactBtn();
+  } else if (page == "about") {
+    changeBodyContent(aboutPage);
+    gsapAbout();
+  } else if (page == "skills") {
+    changeBodyContent(skillsPage);
+    gsapSKills();
+  } else if (page == "contact") {
+    changeBodyContent(contactPage);
+  }
 }
 
 function changeBodyContent(content) {
-	bodyElement.innerHTML = content;
+  bodyElement.innerHTML = content;
 }
 
 function getProjects() {
-	return document.querySelectorAll('.view-project');
+  return document.querySelectorAll(".view-project");
 }
 function addEventListenerToProjects() {
-	let projects = getProjects();
-	projects.forEach((project) => {
-		project.addEventListener('click', getTargetedProject);
-	});
+  let projects = getProjects();
+  projects.forEach((project) => {
+    project.addEventListener("click", getTargetedProject);
+  });
 }
 
 function printProject(e) {
-	return e.target.parentElement.parentElement.parentElement.id;
+  return e.target.parentElement.parentElement.parentElement.id;
 }
 
 function getTargetedProject(e) {
-	let projectId = printProject(e);
-	for (let project of projects) {
-		if (project.id == projectId) {
-			bodyElement.innerHTML = createSingleProjectHtml(
-				project.title,
-				project.description,
-				project.github,
-				project.url,
-				project.image
-			);
-			gsapProject();
-			selectBackBtn();
-		}
-	}
+  let projectId = printProject(e);
+  for (let project of projects) {
+    if (project.id == projectId) {
+      bodyElement.innerHTML = createSingleProjectHtml(
+        project.title,
+        project.description,
+        project.github,
+        project.url,
+        project.image,
+      );
+      gsapProject();
+      selectBackBtn();
+    }
+  }
 }
 function selectBackBtn() {
-	let backBtn = document.getElementById('btn-back');
-	backBtn.addEventListener('click', () => {
-		changeBodyContent(workProjects);
-		addEventListenerToProjects();
-	});
+  let backBtn = document.getElementById("btn-back");
+  backBtn.addEventListener("click", () => {
+    changeBodyContent(workProjects);
+    addEventListenerToProjects();
+  });
 }
 
 function createSingleProjectHtml(title, description, github, url, image) {
-	let currentProject = `
+  let currentProject = `
             <a id="btn-back" class="btn btn-cta btn-back" href="#">Projects</a>
             <div class="grid-single-project">
                 <div class="project-description">
@@ -162,14 +162,14 @@ function createSingleProjectHtml(title, description, github, url, image) {
                 </div>
             </div>
     `;
-	return currentProject;
+  return currentProject;
 }
 
 function createProjectFromObj() {
-	let result = '';
-	let counter = 1;
-	for (let project of projects) {
-		let singleProject = `
+  let result = "";
+  let counter = 1;
+  for (let project of projects) {
+    let singleProject = `
         <div id="${project.id}" class="project">
             <div class="grid-project">
                 <div class="project-num">
@@ -194,21 +194,21 @@ function createProjectFromObj() {
         </div>
         
         `;
-		result += singleProject;
-	}
-	result = `<div class="grid-template__work">${result}</div>`;
-	return result;
+    result += singleProject;
+  }
+  result = `<div class="grid-template__work">${result}</div>`;
+  return result;
 }
 
 addEventListenerHomeContactBtn();
 
 function addEventListenerHomeContactBtn() {
-	homeContactBtn = document.getElementById('home-btn');
-	homeContactBtn.addEventListener('click', () => {
-		changeBodyContent(contactPage);
-		removeActiveClassFromNavLinks();
-		document.getElementById('contact').classList.add('active');
-	});
+  homeContactBtn = document.getElementById("home-btn");
+  homeContactBtn.addEventListener("click", () => {
+    changeBodyContent(contactPage);
+    removeActiveClassFromNavLinks();
+    document.getElementById("contact").classList.add("active");
+  });
 }
 
 const contactPage = `<div class="grid-template__contact">
@@ -314,64 +314,64 @@ Skills can be taught, personality is inherent. I prefer to keep learning, contin
 // gsap animtaion functions
 
 function gsapHome() {
-	gsap.from('#home-title, #home-paragraph, #home-btn', {
-		opacity: 0,
-		delay: 0.5,
-		x: 400,
-		stagger: 0.25,
-		ease: 'ease',
-	});
+  gsap.from("#home-title, #home-paragraph, #home-btn", {
+    opacity: 0,
+    delay: 0.5,
+    x: 400,
+    stagger: 0.25,
+    ease: "ease",
+  });
 }
 function gsapWork() {
-	gsap.from('.project', {
-		opacity: 0,
-		delay: 0.5,
-		x: 400,
-		stagger: 0.35,
-		ease: 'ease',
-	});
+  gsap.from(".project", {
+    opacity: 0,
+    delay: 0.5,
+    x: 400,
+    stagger: 0.35,
+    ease: "ease",
+  });
 }
 
 function gsapProject() {
-	gsap.from('.project-description', {
-		opacity: 0,
-		duration: 1.5,
-		y: 200,
-	});
-	gsap.from('.img-container', {
-		opacity: 0,
-		x: 400,
-		ease: 'ease',
-	});
+  gsap.from(".project-description", {
+    opacity: 0,
+    duration: 1.5,
+    y: 200,
+  });
+  gsap.from(".img-container", {
+    opacity: 0,
+    x: 400,
+    ease: "ease",
+  });
 }
 
 function gsapAbout() {
-	gsap.from('.about-section', {
-		opacity: 0,
-		duration: 1,
-		x: 200,
-		stagger: 0.25,
-	});
-	gsap.from('.profile-pic', {
-		opacity: 0,
-		duration: 1.5,
-	});
+  gsap.from(".about-section", {
+    opacity: 0,
+    duration: 1,
+    x: 200,
+    stagger: 0.25,
+  });
+  gsap.from(".profile-pic", {
+    opacity: 0,
+    duration: 1.5,
+  });
 }
 function gsapSKills() {
-	gsap.from('.single-skill, .design-skills', {
-		opacity: 0,
-		duration: 1,
-		x: -100,
-		scale: 1.5,
-		stagger: {
-			ease: 'power3.inOut',
-			each: 0.2,
-		},
-	});
-	gsap.from('.skills-paragraph, .skills-heading', {
-		opacity: 0,
-		duration: 0.5,
-	});
+  gsap.from(".single-skill, .design-skills", {
+    opacity: 0,
+    duration: 1,
+    x: -100,
+    scale: 1.5,
+    stagger: {
+      ease: "power3.inOut",
+      each: 0.2,
+    },
+  });
+  gsap.from(".skills-paragraph, .skills-heading", {
+    opacity: 0,
+    duration: 0.5,
+  });
 }
 
 // animating boxes
@@ -381,27 +381,27 @@ let windowHeight = window.innerHeight;
 
 animateBoxes();
 function animateBoxes() {
-	gsap.from('.cube', {
-		duration: 200,
-		x: windowWidth,
-		y: windowHeight,
-	});
-	gsap.from('.cube1', {
-		duration: 220,
-		x: windowWidth,
-		y: -windowHeight,
-	});
-	gsap.from('.cube2', {
-		duration: 120,
-		x: -windowWidth,
-		y: windowHeight,
-	});
+  gsap.from(".cube", {
+    duration: 200,
+    x: windowWidth,
+    y: windowHeight,
+  });
+  gsap.from(".cube1", {
+    duration: 220,
+    x: windowWidth,
+    y: -windowHeight,
+  });
+  gsap.from(".cube2", {
+    duration: 120,
+    x: -windowWidth,
+    y: windowHeight,
+  });
 }
 
 function random(min, max) {
-	if (max == null) {
-		max = min;
-		min = 0;
-	}
-	return Math.random() * (max - min) + min;
+  if (max == null) {
+    max = min;
+    min = 0;
+  }
+  return Math.random() * (max - min) + min;
 }
